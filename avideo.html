@@ -15,7 +15,7 @@
 <body style='margin : 0px; overflow: hidden;'>
     <a-scene embedded arjs>
         <a-assets>
-            <video id="rampa" autoplay loop="true" src="rampa.mp4"></video>
+            <video id="rampa" autoplay loop="true" src="rampa.mp4" webkit-platsinline />
         </a-assets>
         <a-marker preset='custom' url="cordillera.patt">
             <a-video src="#rampa" width="4" height="2" position="0 0.5 0" autoplay loop="true" rotation="-90 0 0"></a-video>
