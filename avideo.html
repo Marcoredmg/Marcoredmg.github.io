@@ -24,4 +24,23 @@
     </a-scene>
 </body>
 
+<script type="text/javascript">
+    var scene = document.querySelector("a-scene");
+    var vid = document.getElementById("rampa");
+
+    if (scene.hasLoaded) {
+        run();
+    } else {
+        scene.addEventListener("loaded", run);
+    }
+
+    function run() {
+        scene.querySelector(".a-enter-vr-button").addEventListener("click", function (e) {
+            console.log("VR Mode entered");
+            this.style.display = "none";
+            vid.play();
+        }, false);
+    }
+</script>
+
 </html>
