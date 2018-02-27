@@ -9,13 +9,15 @@
     <script src="aframe.js"></script>
     <!-- include ar.js for A-Frame -->
     <script src="aframe-ar.js"></script>
+    <link rel="stylesheet" type="text/css" href="custom.css">
 
 </head>
 
-<body style='margin : 0px; overflow: hidden;'>
+<body style='margin : 0px;'>
+    <button id="play-button">Play</button>
     <a-scene embedded arjs>
         <a-assets>
-            <video id="rampa" autoplay loop="true" src="rampa.mp4" webkit-playsinline playsinline/>
+            <video id="rampa" crossOrigin="anonymous" autoplay="true" loop="true" src="rampa.mp4" webkit-playsinline playsinline/>
         </a-assets>
         <a-marker preset='hiro'>
             <a-video class="video" src="#rampa" width="4" height="2" position="0 0.5 0" rotation="-90 0 0"></a-video>
@@ -25,14 +27,13 @@
 </body>
 
 <script>
-    function playVideo() {
-        var els = document.querySelectorAll('.video')
-        Array.prototype.slice.call(els).forEach(function (el) {
-            el.components.material.material.map.image.play()
-        })
-    }
+    var vid = document.getElementById('rampa');
+    console.log(vid);
 
-    document.querySelector('.a-enter-vr-button').addEventListener('dragenter', playVideo)
+    document.getElementById('play-button').addEventListener("click", function (e) {
+        this.style.display = 'none';
+        vid.play();
+    }, false);
 </script>
 
 </html>
